@@ -3,13 +3,13 @@ use std::io::{BufReader, Read};
 
 #[derive(Debug, Deserialize)]
 pub struct Config {
-    server: Server
+    pub server: Server
 }
 
 #[derive(Debug, Deserialize)]
 pub struct Server {
-    address: String,
-    port: u16
+    pub address: String,
+    pub port: u16
 }
 
 fn read_file() -> Result<String, String> {
