@@ -2,9 +2,19 @@
 extern crate serde_derive;
 extern crate toml;
 
-mod config;
+use actix_web::{HttpServer, App};
 
-fn main() {
+mod config;
+mod http;
+
+#[actix_web::main]
+async fn main() -> std::io::Result<()> {
     let cfg: config::Config = config::read_config();
-    println!("{:#?}", cfg);
+    let bind : String = format!("{}:{}", cfg.server.address, cfg.server.port);
+
+    HttpServer::new(|| App::new()
+        .service(http::index))
+        .bind(bind)?
+        .run()
+        .await
 }
