@@ -1,0 +1,15 @@
+[package]
+name = "gql_samplesrv"
+description = "GraphQL sample server written in Rust"
+readme = "README.md"
+repository = "https://github.com/YuzuRyo61/gql_samplesrv.rs"
+license = "MIT"
+license-file = "LICENSE"
+version = "0.1.0"
+authors = ["YuzuRyo61 <yuzuryo61@yuzulia.work>"]
+edition = "2018"
+keywords = ["sample", "graphql", "web", "server"]
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
