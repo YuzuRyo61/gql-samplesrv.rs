@@ -1,20 +1,17 @@
-#[macro_use]
-extern crate serde_derive;
-extern crate toml;
+extern crate gql_samplesrv;
 
 use actix_web::{HttpServer, App};
-
-mod config;
-mod http;
+use gql_samplesrv::{config, routes};
 
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
     let cfg: config::Config = config::read_config();
-    let bind : String = format!("{}:{}", cfg.server.address, cfg.server.port);
 
-    HttpServer::new(|| App::new()
-        .service(http::index))
-        .bind(bind)?
+    HttpServer::new(|| {
+      App::new()
+          .configure(routes::core)
+    })
+        .bind(format!("{}:{}", cfg.server.address, cfg.server.port))?
         .run()
         .await
 }
