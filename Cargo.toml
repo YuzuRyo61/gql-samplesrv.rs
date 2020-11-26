@@ -13,3 +13,4 @@ keywords = ["sample", "graphql", "web", "server"]
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+toml = "0.5.7"
