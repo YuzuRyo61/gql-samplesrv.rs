@@ -16,6 +16,8 @@ pub mod routes;
 pub mod schema;
 pub mod models;
 
+pub mod gql_schema;
+
 pub fn establish_connection() -> PgConnection {
     dotenv().ok();
     let database_url = env::var("DATABASE_URL")
